@@ -4,7 +4,7 @@ const output = document.querySelector('.output');
 btn.addEventListener('click', () => {
   const string = document.querySelector('.input').value;
   const array = string.split(', ');
-  const select = document.querySelector('.form-check input:checked').value;
+  const select = document.querySelector('.group input:checked').value;
   const unik = document.querySelector('.unik').value;
   let out;
   if (select == 2) {
@@ -20,7 +20,7 @@ btn.addEventListener('click', () => {
   output.innerHTML = out;
 });
 
-function kombinasi2(array, unik = '') {
+function kombinasi2(array, unik = '12345678') {
   let out = '';
   for (let i = 0; i < array.length; i++) {
     for (let j = i + 1; j < array.length; j++) {
@@ -38,22 +38,20 @@ function kombinasi2(array, unik = '') {
   return out;
 }
 
-function kombinasi3(array, unik = '') {
+function kombinasi3(array, unik = '12345678') {
   let out = '';
   for (let i = 0; i < array.length; i++) {
     for (let j = i + 1; j < array.length; j++) {
       for (let k = j + 1; k < array.length; k++) {
-        for (let l = k + 1; l < array.length; l++) {
-          let a = array[i];
-          let b = array[j];
-          let c = array[k];
-          if (a == unik) {
-            out += `{${a}, ${b}, ${c}}`;
-          } else {
-            out += `{${a.strike()}, ${b.strike()}, ${c.strike()}}`;
-          }
-          out += ', ';
+        let a = array[i];
+        let b = array[j];
+        let c = array[k];
+        if (a == unik) {
+          out += `{${a}, ${b}, ${c}}`;
+        } else {
+          out += `{${a.strike()}, ${b.strike()}, ${c.strike()}}`;
         }
+        out += ', ';
       }
     }
   }
@@ -61,7 +59,7 @@ function kombinasi3(array, unik = '') {
   return out;
 }
 
-function kombinasi4(array, unik = '') {
+function kombinasi4(array, unik = '12345678') {
   let out = '';
   for (let i = 0; i < array.length; i++) {
     for (let j = i + 1; j < array.length; j++) {
